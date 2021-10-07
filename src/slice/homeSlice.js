@@ -14,6 +14,7 @@ const homeSlice = createSlice({
       state.loading = true
     },
     getDataSuccess: (state, action) => {
+      // console.log(action.payload);
       state.loading = false
       state.error = false
       state.rocketData = action.payload
@@ -36,10 +37,11 @@ export const fetchData = ()=>{
       dispatch(getData())
       try {
        const response = await fetch('https://api.spacexdata.com/v3/launches');
-        const data = response.json();
-        dispatch(data);
+        const data = await response.json();
+        dispatch(getDataSuccess(data));
       } catch (error) {
-        dispatch(getDataError)
+        dispatch(getDataError(error))
       }
     }
 }
+

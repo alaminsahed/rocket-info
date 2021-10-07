@@ -4,11 +4,13 @@ import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from "./app/store";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

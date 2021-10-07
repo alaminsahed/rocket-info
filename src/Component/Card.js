@@ -1,20 +1,22 @@
 import React from "react";
 
+const Card = (props) => {
+  console.log(props.data.upcoming);
+  const { mission_name, flight_number, rocket, launch_year, upcoming } =
+    props.data;
 
-const Card = () => {
   return (
-    <div>
-      <div className="col">
-        <div className="card">
-          <div className="card-body"> 
-           <h4>Mission Name:</h4>
-           <p>Fight No:</p>
-           <p>Rocket Name:</p>
-           <p>Launch Year:</p>
-           <p>Upcoming:</p></div>
-          
+   
+      <div className="col-4">
+      <div className="card mt-2 mb-2" style={{height:"16rem"}}>
+        <div className="card-body">
+          <h4>Mission Name: {mission_name}</h4>
+          <p>Fight No:{flight_number}</p>
+          <p>Rocket Name:{rocket.rocket_name}</p>
+          <p>Launch Year:{launch_year}</p>
         </div>
       </div>
+     
     </div>
   );
 };
