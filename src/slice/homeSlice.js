@@ -40,6 +40,7 @@ export const fetchData = ()=>{
         const data = await response.json();
         dispatch(getDataSuccess(data));
       } catch (error) {
+        console.log(error);
         dispatch(getDataError(error))
       }
     }

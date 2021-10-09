@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Component/Card";
 import Filter from "../Component/Filter";
 import Search from "../Component/Search";
@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "../slice/homeSlice";
 
 const Home = () => {
+  
+  const [key, setKey] = useState(" ");
+  const [result, setResult] = useState([]);
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -13,20 +16,57 @@ const Home = () => {
     dispatch(fetchData());
   }, [dispatch]);
 
+  let { loading, rocketData } = data.rocketsData;
+  
+
+  const searchHandler = (keyword) => {
+    setKey(keyword);
+    const a = rocketData.filter(rocket => rocket.rocket.rocket_name.includes(key));
+    setResult(a);
+  
+  }
+
+
+console.log(result);
+  // const filterValue = (searchTerm) => {
+  //   console.log(searchTerm);
+  //   setFilteredData(rocketData?.filter(rocket => rocket.rocket.rocket_name.includes("Falcon 1")))
+  // }
+
+
+
+
   return (
     <div className="container">
-      <Search />
+      <div className="container">
+
+        <Search keyword={key} searchHandler={searchHandler} handleFilter={searchHandler} />
+      </div>
       <div className="row">
         <div className="col-md-2 mt-3">
           <Filter />
         </div>
         <div className="col-md-10 mt-3">
           {/* <Card data={data}/> */}
-          <div className="row">
-            {data.rocketsData.rocketData.map((data) => (
-              <Card key={data.mission_name} data={data} />
-            ))}
-          </div>
+          {loading ? (
+            <div className="text-center">
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          ) : (
+            <div className="row">
+              {
+              // result?(
+              //   result.map((data)=>(
+              //     <Card key={data.mission_name} data={data} />
+              //   ))
+              // ):
+              rocketData.map((data) => (
+                <Card key={data.mission_name} data={data} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

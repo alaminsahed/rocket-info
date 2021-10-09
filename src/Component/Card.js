@@ -1,9 +1,11 @@
 import React from "react";
 
 const Card = (props) => {
-  console.log(props.data.upcoming);
+  // console.log(props.data.upcoming);
   const { mission_name, flight_number, rocket, launch_year, upcoming } =
     props.data;
+
+   
 
   return (
    
@@ -14,6 +16,7 @@ const Card = (props) => {
           <p>Fight No:{flight_number}</p>
           <p>Rocket Name:{rocket.rocket_name}</p>
           <p>Launch Year:{launch_year}</p>
+          <p>Upcoming:{ String(upcoming) }</p>
         </div>
       </div>
      
