@@ -22,6 +22,16 @@ const Filter = ({data, setResult}) => {
               <Dropdown.Item onClick={()=>filterLaunchingStatus("false")}>Failure</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+
+          <Dropdown className="pt-5">
+            <Dropdown.Toggle variant="info" id="dropdown-basic">
+            Status
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={()=>filterLaunchingStatus("true")}>Success</Dropdown.Item>
+              <Dropdown.Item onClick={()=>filterLaunchingStatus("false")}>Failure</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
     </div>

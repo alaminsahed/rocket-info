@@ -8,7 +8,7 @@ import { fetchData } from "../slice/homeSlice";
 const Home = () => {
 
   const [key, setKey] = useState(" ");
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState(null);
   const data = useSelector((state) => state);
   const dispatch = useDispatch();
   
@@ -35,7 +35,6 @@ console.log(result);
 
   
 
-
   return (
     <div className="container">
       <div className="container">
@@ -54,12 +53,12 @@ console.log(result);
             </div>
           ) : (
             <div className="row">
-              {/* 
+              {
               result?(
                 result.map((data)=>(
                   <Card key={data.mission_name} data={data} />
                 ))
-              ): */
+              ): 
               rocketData.map((data) => (
                 <Card key={data.mission_name} data={data} />
               ))
