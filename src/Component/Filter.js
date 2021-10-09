@@ -56,7 +56,7 @@ const Filter = ({data, setResult}) => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item onClick={filterTime}>Last Year</Dropdown.Item>
-              <Dropdown.Item >False</Dropdown.Item>
+              
             </Dropdown.Menu>
           </Dropdown>
         </div>
