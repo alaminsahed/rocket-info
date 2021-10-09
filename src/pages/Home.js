@@ -27,7 +27,7 @@ const Home = () => {
   }
 
 
-console.log(result);
+
   // const filterValue = (searchTerm) => {
   //   console.log(searchTerm);
   //   setFilteredData(rocketData?.filter(rocket => rocket.rocket.rocket_name.includes("Falcon 1")))
